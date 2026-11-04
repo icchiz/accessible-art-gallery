@@ -6,23 +6,39 @@ body {
     padding: 20px;
 }
 
-#image-display {
+
+#display-container {
     width: 80%;
     max-width: 600px;
-    height: 300px;
-    margin: 20px auto;
-    background-color: #ddd;
+    margin: 20px auto 30px auto;
+    background-color: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+#image-holder {
+    width: 100%;
+    height: 320px;
+    background-color: #eee;
     background-size: cover;
     background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s ease-in-out;
+}
+
+
+#image-caption {
+    margin: 0;
+    padding: 12px 15px;
+    font-size: 1.05rem;
+    font-weight: 600;
     color: #333;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border: 2px dashed #888;
-    border-radius: 8px;
-    padding: 10px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #eee;
+    min-height: 24px;
 }
 
 .gallery {
@@ -33,16 +49,16 @@ body {
 }
 
 .preview {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     border: 3px solid transparent;
     transition: transform 0.2s, border-color 0.2s;
 }
 
-/* Hiệu ứng khi rê chuột hoặc dùng bàn phím Tab vào */
+
 .preview:hover,
 .preview:focus {
     transform: scale(1.08);
