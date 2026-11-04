@@ -1,31 +1,37 @@
 
 function updateImage(previewPic) {
-    const display = document.getElementById("image-display");
-    display.style.backgroundImage = `url('${previewPic.src}')`;
-    display.innerText = previewPic.alt;
-    console.log("Event triggered: Xem ảnh - " + previewPic.alt);
+    const imgHolder = document.getElementById("image-holder");
+    const imgCaption = document.getElementById("image-caption");
+
+   
+    imgHolder.style.backgroundImage = `url('${previewPic.src}')`;
+    
+    
+    imgCaption.innerText = previewPic.alt;
+
+    console.log("Event triggered: Đã chọn ảnh - " + previewPic.alt);
 }
 
 
 function unUpdate() {
-    const display = document.getElementById("image-display");
-    display.style.backgroundImage = "url('')";
-    display.innerText = "Rê chuột hoặc dùng phím Tab để chọn một chú chó bên dưới.";
+    const imgHolder = document.getElementById("image-holder");
+    const imgCaption = document.getElementById("image-caption");
+
+    imgHolder.style.backgroundImage = "url('')";
+    imgCaption.innerText = "Rê chuột hoặc dùng phím Tab để chọn một chú chó bên dưới.";
 }
 
 
 function addTabFocus() {
-    console.log("Trang web đã load xong! Đang tự động gán tabindex...");
-
+    console.log("Trang web tải thành công! Đang khởi tạo các thuộc tính accessibility...");
 
     const images = document.querySelectorAll(".preview");
 
-
     for (let i = 0; i < images.length; i++) {
-   
+        
         images[i].setAttribute("tabindex", "0");
 
-     
+      
         images[i].addEventListener("mouseover", function() {
             updateImage(this);
         });
@@ -43,5 +49,5 @@ function addTabFocus() {
     }
 }
 
-// Bước 8: Đăng ký hàm addTabFocus chạy khi trang web tải xong (onload)
+// Chạy hàm khi trang web hoàn tất việc load (onload)
 window.onload = addTabFocus;
